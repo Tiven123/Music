@@ -58,7 +58,7 @@ $autoload['packages'] = array();
 |
 |	$autoload['libraries'] = array('user_agent' => 'ua');
 */
-$autoload['libraries'] = array('database', 'session');
+$autoload['libraries'] = array('database','form_validation');
 
 /*
 | -------------------------------------------------------------------
@@ -89,7 +89,14 @@ $autoload['drivers'] = array();
 |
 |	$autoload['helper'] = array('url', 'file');
 */
-$autoload['helper'] = array('url', 'captcha');
+$autoload['helper'] = array(
+    'url',
+    'file',
+    'form',
+    'text',
+    'html',
+    'date'
+);
 
 /*
 | -------------------------------------------------------------------
@@ -103,7 +110,7 @@ $autoload['helper'] = array('url', 'captcha');
 | config files.  Otherwise, leave it blank.
 |
 */
-$autoload['config'] = array('rides');
+$autoload['config'] = array();
 
 /*
 | -------------------------------------------------------------------
@@ -132,4 +139,4 @@ $autoload['language'] = array();
 |
 |	$autoload['model'] = array('first_model' => 'first');
 */
-$autoload['model'] = array('User_model');
+$autoload['model'] = array();

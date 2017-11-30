@@ -53,6 +53,7 @@ $route['usuario/listado'] = 'user/index';
 $route['usuario/salvar'] = 'user/save';
 $route['usuario/crear'] = 'user/create';
 $route['usuario/login'] = 'user/login';
+$route['usuario/welcome']='welcome';
 $route['default_controller'] = 'user/login';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;

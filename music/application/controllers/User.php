@@ -12,6 +12,7 @@ class User extends CI_Controller {
   {
 	$this->load->model('music_model');
 
+
 	$instrums = $this->music_model->allInstru();
 
 
@@ -27,6 +28,7 @@ class User extends CI_Controller {
 	 * This method will save a new user
 	 */
 	public function save() {
+		$this->load->model('user_model');
 		// objener valores
 		$name = $this->input->post('name');
 		$address = $this->input->post('address');
@@ -55,7 +57,7 @@ class User extends CI_Controller {
 			'password'=> $pass
 			);
 			// que devuelva id
-			$id = $this->User_model->save($user);
+			$id = $this->user_model->save($user);
 
 			//echo "ID".$id;
 
@@ -101,7 +103,7 @@ class User extends CI_Controller {
 
 		if($id>0) {
      // $this->session->set_flashdata('message','User saved');
-		 redirect('usuario/login');
+		 redirect('/index.php/usuario/login');
 		} else {
     //  $this->session->set_flashdata('message','There was an error saving the user');
 		//	redirect('usuario/crear');
@@ -113,7 +115,8 @@ class User extends CI_Controller {
 	 */
 	public function authenticate() {
 		// objener valores
-    $user = $this->input->post('username');
+		$this->load->model('user_model');
+    	$user = $this->input->post('username');
 		$pass = $this->input->post('password');
 
     // consultar BD
@@ -121,13 +124,15 @@ class User extends CI_Controller {
     // load the model, can also be loaded from the autoload
 		// $this->load->model('User_model');
 
-    $r = $this->User_model->authenticate($user, $pass);
+    $r = $this->user_model->authenticate($user, $pass);
 
 		if(sizeof($r) > 0) {
 			// $this->session->set_userdata('user', $r[0]);
 			// redirect('/');
       $name = $r[0]->name;
-      echo "Hello $name";
+      
+        //redirect('usuario/welcome');
+     redirect('/index.php/usuario/welcome');
 		} else {
 			// $this->session->set_flashdata('error', 'Password or User invalid');
 			// redirect('/');

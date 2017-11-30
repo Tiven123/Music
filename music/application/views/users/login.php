@@ -23,13 +23,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	<div id="body">
 		<p>Please login with your credentials below</p>
 		<div class="error"> </div>
-    <form class="" action=<?php echo site_url('user/authenticate'); ?> method="post">
+    <form class="" action=<?php echo site_url('index.php/user/authenticate'); ?> method="post">
       Username: <input type="text" name="username" value="">
       Pass: <input type="password" name="password" value="">
       <input class="btn" type="submit" value="Login">
     </form>
 
-	<a href="<?php echo site_url('user/create')?>">Register!</a>
+	<a href="<?php echo site_url('index.php/user/create')?>">Register!</a>
 	</div>
 </div>
 
